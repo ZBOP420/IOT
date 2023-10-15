@@ -1,0 +1,33 @@
+int led=13;
+int sensor=2;
+int state= LOW;
+int val= 0;
+
+void setup()
+{
+  pinMode(led,OUTPUT);
+  pinMode(sensor,INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  val= digitalRead(sensor);
+  
+  if(val == HIGH) {
+  digitalWrite(led,HIGH);
+  
+    if(state == LOW) {
+  Serial.println("Motion detected! Please Wait...");
+  state = HIGH;
+  delay(3000);
+   }
+  }
+
+else {
+  digitalWrite(led,LOW);
+  
+  if(state == HIGH) {
+    Serial.println("Motion ended!");
+  }
+}
+} /*end of the loop*/
