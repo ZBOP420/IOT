@@ -1,0 +1,139 @@
+1-1 led 
+2-3 led
+3-8led scroll
+4-8led odd or even
+5-interfacing of led using switch
+7- fading of led using potentio meter
+8- control servomotor using potentio meter
+9- it sensor
+10- running servo motor without potentiometer
+11-pir sensor
+
+
+////////////////////////////////////////code/////////////////////////////////////////////////
+
+
+experiment 3 (8led scroll)
+int LEDpins{2,3,4,5,6,7,8,9};
+void setup()
+{
+for(int i=0;i<8;i++){
+pinMode(LEDpins[i],OUTPUT);}
+Serial.begin(9600);}
+void loop(){
+for(int i=0;i<8;i++)
+{
+digitalWrite(LEDpins[i],HIGH);
+delay(1000);
+digitalWrite(LEDpins[i],LOW);}
+for(int i=7;i>=0;i--){
+digitalWrite(LEDpins[i],HIGH);
+delay(1000);
+digitalWrite(LEDpins[i],LOW);}
+}
+
+///////////////////////////////////////////////////////////////////////////
+Experiment 4 (8led odd or even)
+Int del=1000;
+Void setup(){
+for(int i=2;i<=8;i++){
+pinMode(1,OUTPUT);}
+}
+Voidloop(){
+for(int i=2;i<=8;i++){
+if(i%2==0){
+digitalWrite(I,HIGH);
+delay(del);
+digitalWrite(I,LOW);
+delay(del);
+}
+}
+for(int i=2;i<=8;i++){
+if(i%2==1){
+digitalWrite(I,HIGH);
+delay(del);
+digitalWrite(I,LOW);
+delay(del);}
+}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+Experiment 5 (interfacing of led using switch)
+void setup()
+{
+pinMode(13,OUTPUT);
+pinMode(12,INPUT);
+serialbegin(9600);
+}
+Void Loop(){
+If(digital read(12==1){
+Digital write(13.HIGH);
+Delay(1000);
+Serial print(“Led Is on”);}
+Digital write(13.LOW);
+Delay(1000);
+Serial print(“Led Is off”);}
+
+///////////////////////////////////////////////////////////////
+Experiment 7(fading of led using potentio meter)
+Int value=0;
+void setup()
+{
+pinMode(13,OUTPUT);
+pinMode(A0,INPUT);}
+void loop(){
+Value=AnalogRead(A0)
+Digital write(13.HIGH);
+Delay(Value);
+Digital write(13.LOW);
+Delay(Value);
+
+//////////////////////////////////////////////////////////////////////
+Experiment 8 (control servomotor using potentio meter)
+#include<Servo.h>
+Servo Myservo;
+Int Potpin=0;
+Void Setup()
+{
+Myservo.attach(9);
+pinMode(A0,INPUT);}
+voidloop(){
+int val=analogRead(potpin);
+int output=map(val,0,1023,0,180);
+myservo.write(val);delay(1000);}
+
+/////////////////////////////////////////////////////////////////////
+Experiment 9 (it sensor)
+void setup()
+{
+pinMode(13,OUTPUT);
+pinMode(2,INPUT);}
+serialbegin(9600);
+}
+Void loop{
+Int status= digital read(2);
+If (status==0){
+Digital write(13.HIGH);
+Serial print(“Led Is on”);
+Serial print(status);
+}else{ Digital write(13.LOW);
+Serial print(“Led Is off”);
+Serial print(status);}
+
+/////////////////////////////////////////////////////////////////////////
+Experiment 10 ( running servo motor without potentiometer)
+#include<Servo.h>
+Servo Myservo;
+Int Pos=0;
+Void Setup()
+{
+Myservo.attach(9);
+}
+Voidloop(){
+For(pos=0;po<180;pos++)
+{
+Myservo.write(pos);
+Delay(5);}
+For(pos=180);pos>0;pos--){
+Myservo.write(pos);
+Delay(5);}}
